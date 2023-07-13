@@ -1,3 +1,7 @@
+function filterByTerm(inputArr, searchTerm) {
+  return inputArr.filter((arrayElement) => arrayElement.url.match(searchTerm));
+}
+
 describe('Filter function', () => {
   // test stuff
   test('it should filter by a search term', () => {
@@ -10,5 +14,7 @@ describe('Filter function', () => {
     const output = [{ id: 3, url: 'https://www.link3.dev' }];
 
     expect(filterByTerm(input, 'link')).toEqual(output);
+
+    expect(filterByTerm(input, 'LINK')).toEqual(output);
   });
 });
